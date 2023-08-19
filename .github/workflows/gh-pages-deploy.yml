@@ -1,0 +1,31 @@
+name: Build and Deploy to GitHub Personal Page
+
+on:
+  push:
+    branches:
+      - 'master'  # 假设你的源代码在 'source' 分支，你可以根据自己的需要更改
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Install Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20.5.1'  # 你的项目需要的 Node.js 版本
+
+    - name: Install Dependencies
+      run: npm ci
+
+    - name: Build Project
+      run: npx ng build --base-href="/"
+    
+    - name: Deploy to GitHub Personal Page
+      uses: JamesIves/github-pages-deploy-action@4.1.0
+      with:
+        branch: gh-pages
+        folder: dist/b-lib
