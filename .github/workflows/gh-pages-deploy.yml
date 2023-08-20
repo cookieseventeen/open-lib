@@ -1,31 +1,24 @@
-name: Build and Deploy to GitHub Personal Page
-
+name: Build and Deploy
 on:
   push:
     branches:
-      - 'master'  # 假设你的源代码在 'source' 分支，你可以根据自己的需要更改
-
+      - master
 jobs:
-  build-and-deploy:
+  build:
+
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v3
-
-    - name: Install Node.js
-      uses: actions/setup-node@v3
+    - uses: actions/checkout@v3
+    - name: Angular Deploy gh-pages Actions
+      uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.4.0 ## replace by latest version without it you will see Expected format {org}/{repo}[/path]@ref. Actual 'AhsanAyaz/angular-deploy-gh-pages-actions',Input string was not in a correct format.
       with:
-        node-version: '20.5.1'  # 你的项目需要的 Node.js 版本
+        github_access_token: ${{ secrets.GITHUB_TOKEN }} # see the Configuration section for how you can create secrets
+        build_configuration: false # The build environment for the app. please look configurations in your angular.json
+        base_href: /open-lib/   # make sure this corresponds to https://<your_username>.github.io/<base_href>/
+        deploy_branch: gh-pages # The branch the action should deploy to.
+        angular_dist_build_folder: dist/ # The folder where your project is supposed to be after running ng build by the action.
 
-    - name: Install Dependencies
-      run: npm ci
-
-    - name: Build Project
-      run: npx ng build --base-href="/"
-    
-    - name: Deploy to GitHub Personal Page
-      uses: JamesIves/github-pages-deploy-action@4.1.0
-      with:
-        branch: gh-pages
-        folder: dist/open-lib
+permissions:
+  contents: write # Allow write permission to GITHUB_TOKEN to commit to deploy branch.
+            
