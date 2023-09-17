@@ -1,9 +1,11 @@
-<h1>
-  TEST open 測試
-</h1>
-<router-outlet></router-outlet>
-<app-custom-button custom-style="black"></app-custom-button>
-<br>
-<app-custom-button custom-style="red"></app-custom-button>
-<br>
-<app-custom-button custom-style="blue"></app-custom-button>
+<app-portal-layout>
+  <ng-container header>
+    <app-header></app-header>
+  </ng-container>
+  <ng-container>
+    <router-outlet></router-outlet>
+  </ng-container>
+  <ng-container footer>
+    <app-footer></app-footer>
+  </ng-container>
+</app-portal-layout>
