@@ -9,6 +9,10 @@ import { HeaderComponent } from './components/parts/header/header.component';
 import { FooterComponent } from './components/parts/footer/footer.component';
 import { DemoButtonsComponent } from './templates/demo-buttons/demo-buttons.component';
 import { DefaultTemplateComponent } from './templates/default-template/default-template.component';
+import { DemoElementInjectorComponent } from './templates/demo-element-injector/demo-element-injector.component';
+import { AaaElementComponent } from './templates/aaa-element/aaa-element.component';
+import { BbbElementComponent } from './templates/bbb-element/bbb-element.component';
+import { ChildElementComponent } from './templates/child-element/child-element.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,11 @@ import { DefaultTemplateComponent } from './templates/default-template/default-t
     HeaderComponent,
     FooterComponent,
     DemoButtonsComponent,
-    DefaultTemplateComponent
+    DefaultTemplateComponent,
+    DemoElementInjectorComponent,
+    AaaElementComponent,
+    BbbElementComponent,
+    ChildElementComponent
   ],
   imports: [
     BrowserModule,
