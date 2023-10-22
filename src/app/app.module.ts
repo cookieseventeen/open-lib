@@ -13,6 +13,10 @@ import { DemoElementInjectorComponent } from './templates/demo-element-injector/
 import { AaaElementComponent } from './templates/aaa-element/aaa-element.component';
 import { BbbElementComponent } from './templates/bbb-element/bbb-element.component';
 import { ChildElementComponent } from './templates/child-element/child-element.component';
+import { CccElementComponent } from './templates/ccc-element/ccc-element.component';
+import { FontSizeService } from './service/font-size.service';
+import { FONT_SIZE_SERVICE } from './Injection-token/font-size-service.injection-token';
+import { DddElementComponent } from './templates/ddd-element/ddd-element.component';
 
 @NgModule({
   declarations: [
@@ -26,13 +30,21 @@ import { ChildElementComponent } from './templates/child-element/child-element.c
     DemoElementInjectorComponent,
     AaaElementComponent,
     BbbElementComponent,
-    ChildElementComponent
+    ChildElementComponent,
+    CccElementComponent,
+    DddElementComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    //FontSizeService,
+    {
+      provide: FONT_SIZE_SERVICE,
+      useClass: FontSizeService
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
