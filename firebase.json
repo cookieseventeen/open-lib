@@ -4,13 +4,13 @@
     "indexes": "firestore.indexes.json"
   },
   "hosting": {
-    "public": "dist/open-lib",
+    "public": "/dist/open-lib",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
     ],
-		"rewrites": [
+    "rewrites": [
       {
         "source": "**",
         "destination": "/index.html"
