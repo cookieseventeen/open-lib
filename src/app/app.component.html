@@ -9,3 +9,10 @@
     <app-footer></app-footer>
   </ng-container>
 </app-portal-layout>
+
+
+<ul>
+  <li class="text" *ngFor="let item of items | async">
+    {{item?.listID}}
+  </li>
+</ul>

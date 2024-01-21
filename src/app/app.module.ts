@@ -17,6 +17,10 @@ import { CccElementComponent } from './templates/ccc-element/ccc-element.compone
 import { FontSizeService } from './service/font-size.service';
 import { FONT_SIZE_SERVICE } from './Injection-token/font-size-service.injection-token';
 import { DddElementComponent } from './templates/ddd-element/ddd-element.component';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -36,7 +40,10 @@ import { DddElementComponent } from './templates/ddd-element/ddd-element.compone
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule.forRoot({}, {}),
+    EffectsModule.forRoot([]),
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [
     //FontSizeService,
