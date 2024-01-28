@@ -10,12 +10,8 @@ import { Observable } from 'rxjs';
 export class AppComponent {
   items!: Observable<any[]>;
 
-  constructor(firestore: AngularFirestore){
-    this.items = firestore.collection('items').valueChanges();
-
-    console.log(this.items);
-    console.log(this.items);
-
+  constructor(firestore: AngularFirestore) {
+    //this.items = firestore.collection('items').valueChanges(); 訂閱firebase資料
   }
   title = 'open-lib';
 }
