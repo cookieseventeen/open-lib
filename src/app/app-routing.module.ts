@@ -3,9 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { DemoButtonsComponent } from './templates/demo-buttons/demo-buttons.component';
 import { DefaultTemplateComponent } from './templates/default-template/default-template.component';
 import { DemoElementInjectorComponent } from './templates/demo-element-injector/demo-element-injector.component';
-import { PageOneComponent } from './page/page-one/page-one.component';
-import { PageTwoComponent } from './page/page-two/page-two.component';
-import { PageThreeComponent } from './page/page-three/page-three.component';
 
 export const routes: Routes = [
   {
@@ -18,7 +15,6 @@ export const routes: Routes = [
   },
   {
     path: 'page-one',
-    component: PageOneComponent,
     loadChildren: () =>
       import('./page/page-one/page-one.module').then(
         (m) => m.PageOneModule
@@ -26,7 +22,6 @@ export const routes: Routes = [
   },
   {
     path: 'page-two',
-    component: PageTwoComponent,
     loadChildren: () =>
       import('./page/page-two/page-two.module').then(
         (m) => m.PageTwoModule
@@ -34,7 +29,6 @@ export const routes: Routes = [
   },
   {
     path: 'page-three',
-    component: PageThreeComponent,
     loadChildren: () =>
       import('./page/page-three/page-three.module').then(
         (m) => m.PageThreeModule

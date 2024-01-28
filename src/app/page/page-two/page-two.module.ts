@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { SameComponentModule } from 'src/app/templates/same-component/same-component.module';
 import { DiffenentComponentModule } from 'src/app/templates/diffenent-component/diffenent-component.module';
 import { SameTwoComponentModule } from 'src/app/templates/same-two-component/same-two-component.module';
+import { PageTwoRoutingModule } from './page-two-routing.module';
 
 
 
@@ -13,13 +14,10 @@ import { SameTwoComponentModule } from 'src/app/templates/same-two-component/sam
   declarations: [PageTwoComponent],
   imports: [
     CommonModule,
-    RouterModule,
+    PageTwoRoutingModule,
     SameComponentModule,
     DiffenentComponentModule,
     SameTwoComponentModule
-  ],
-  exports: [
-    PageTwoComponent,
   ]
 })
 export class PageTwoModule { }

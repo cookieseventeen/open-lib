@@ -1,25 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PageOneComponent } from './page-one.component';
-import { SameComponentComponent } from 'src/app/templates/same-component/same-component.component';
-import { RouterModule } from '@angular/router';
+
+import { PageOneRoutingModule } from './page-one-routing.module';
 import { SameComponentModule } from 'src/app/templates/same-component/same-component.module';
 import { SameTwoComponentModule } from 'src/app/templates/same-two-component/same-two-component.module';
-
+import { PageOneComponent } from './page-one.component';
 
 
 @NgModule({
-  declarations: [
-    PageOneComponent
-  ],
+  declarations: [PageOneComponent],
   imports: [
     CommonModule,
-    RouterModule,
+    PageOneRoutingModule,
     SameComponentModule,
     SameTwoComponentModule
-  ],
-  exports: [
-    PageOneComponent
   ]
 })
 export class PageOneModule { }
